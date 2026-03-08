@@ -3,12 +3,14 @@ import { globSync } from "glob";
 
 export default defineConfig({
   root: "./src",
+  base: "/goit-js-hw-09/",
   define: {
-    global: "window", // İşte bu satır o "global is not defined" hatasını kökten çözer.
-  },
+    global: "window", 
+    },
   build: {
     rollupOptions: {
       input: globSync("./src/*.html"),
     },
+    outDir: "../dist",
   },
 });
