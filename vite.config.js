@@ -1,16 +1,20 @@
 import { defineConfig } from "vite";
-import { globSync } from "glob";
 
 export default defineConfig({
-  root: "./src",
+  root: "src",
   base: "/goit-js-hw-09/",
   define: {
-    global: "window", 
-    },
+    global: "window",
+  },
   build: {
-    rollupOptions: {
-      input: globSync("./src/*.html"),
-    },
     outDir: "../dist",
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        index: "src/index.html",
+        gallery: "src/01-gallery.html",
+        form: "src/02-form.html",
+      },
+    },
   },
 });
